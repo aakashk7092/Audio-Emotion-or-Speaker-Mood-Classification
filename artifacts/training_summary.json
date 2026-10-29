@@ -1,0 +1,8 @@
+{
+  "epochs_completed": 32,
+  "best_val_accuracy": 0.5541666746139526,
+  "best_val_loss": 1.3719451427459717,
+  "test_samples_reserved": 240,
+  "best_model_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\models\\best_mfcc_cnn.keras",
+  "normalization_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\artifacts\\mfcc_normalization.npz"
+}

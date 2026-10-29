@@ -1,0 +1,16 @@
+{
+  "experiment": "MFCC feature-level augmentation",
+  "epochs_completed": 32,
+  "best_val_accuracy": 0.4625000059604645,
+  "best_val_loss": 1.494086503982544,
+  "train_samples": 960,
+  "validation_samples": 240,
+  "test_samples_reserved": 240,
+  "augmentation_probability": 0.7,
+  "noise_level": 0.03,
+  "max_time_shift_frames": 8,
+  "best_model_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\models\\best_mfcc_cnn_augmented.keras",
+  "normalization_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\artifacts\\mfcc_normalization_augmented.npz",
+  "history_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\artifacts\\training_history_augmented.csv",
+  "test_used_for_model_selection": false
+}

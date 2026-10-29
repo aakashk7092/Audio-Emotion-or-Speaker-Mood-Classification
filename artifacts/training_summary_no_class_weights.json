@@ -1,0 +1,15 @@
+{
+  "experiment": "MFCC CNN without class weights or augmentation",
+  "epochs_completed": 26,
+  "best_val_accuracy": 0.4541666805744171,
+  "best_val_loss": 1.5064350366592407,
+  "train_samples": 960,
+  "validation_samples": 240,
+  "test_samples_reserved": 240,
+  "class_weights_used": false,
+  "augmentation_used": false,
+  "best_model_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\models\\best_mfcc_cnn_no_class_weights.keras",
+  "normalization_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\artifacts\\mfcc_normalization_no_class_weights.npz",
+  "history_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\artifacts\\training_history_no_class_weights.csv",
+  "test_used_for_model_selection": false
+}
