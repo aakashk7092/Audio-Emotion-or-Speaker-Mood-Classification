@@ -1,0 +1,13 @@
+
+numpy==1.26.4
+pandas
+scikit-learn
+librosa==0.10.2.post1
+soundfile
+tensorflow==2.15.1
+matplotlib
+seaborn
+streamlit
+PyYAML
+tqdm
+pytest
