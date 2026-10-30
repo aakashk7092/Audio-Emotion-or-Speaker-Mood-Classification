@@ -1,0 +1,17 @@
+{
+    "experiment": "4B",
+    "dropout_rates": [
+        0.15,
+        0.2,
+        0.3
+    ],
+    "l2_strength": 0.0,
+    "learning_rate": 0.001,
+    "epochs_completed": 35,
+    "best_epoch": 27,
+    "best_val_accuracy": 0.5874999761581421,
+    "best_val_loss": 1.0842047929763794,
+    "test_samples_reserved": 240,
+    "best_model_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\models\\best_mfcc_cnn_reg_4b.keras",
+    "normalization_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\artifacts\\mfcc_normalization_reg_4b.npz"
+}

@@ -120,7 +120,117 @@ def plot_training_history():
     plt.show()
 
     print(f"Training history graphs saved to: {output_path}")
+    
+
+def plot_regularization_history():
+    import pandas as pd
+    import matplotlib.pyplot as plt
+
+    history_path = (
+        PROJECT_ROOT / "artifacts" / "training_history_reg_4a.csv"
+    )
+
+    if not history_path.is_file():
+        raise FileNotFoundError(
+            f"Experiment 4A history not found: {history_path}"
+        )
+
+    history = pd.read_csv(history_path)
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5))
+
+    epochs = history["epoch"] + 1
+
+    # Accuracy
+    axes[0].plot(
+        epochs, history["accuracy"],
+        label="Training Accuracy"
+    )
+    axes[0].plot(
+        epochs, history["val_accuracy"],
+        label="Validation Accuracy"
+    )
+    axes[0].set_title("Experiment 4A - Accuracy")
+    axes[0].set_xlabel("Epoch")
+    axes[0].set_ylabel("Accuracy")
+    axes[0].legend()
+    axes[0].grid(True)
+
+    # Loss
+    axes[1].plot(
+        epochs, history["loss"],
+        label="Training Loss"
+    )
+    axes[1].plot(
+        epochs, history["val_loss"],
+        label="Validation Loss"
+    )
+    axes[1].set_title("Experiment 4A - Loss")
+    axes[1].set_xlabel("Epoch")
+    axes[1].set_ylabel("Loss")
+    axes[1].legend()
+    axes[1].grid(True)
+
+    plt.tight_layout()
+
+    output_path = (
+        OUTPUT_DIR / "regularization_4a_training_history.png"
+    )
+
+    plt.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.show()
+
+    print(f"Experiment 4A graphs saved to: {output_path}")
+    
+
+def plot_reg_4b_history():
+    import pandas as pd
+    import matplotlib.pyplot as plt
+
+    history_path = (
+        PROJECT_ROOT / "artifacts" / "training_history_reg_4b.csv"
+    )
+
+    if not history_path.is_file():
+        raise FileNotFoundError(history_path)
+
+    history = pd.read_csv(history_path)
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5))
+
+    epochs = history["epoch"] + 1
+
+    axes[0].plot(epochs, history["accuracy"], label="Training Accuracy")
+    axes[0].plot(epochs, history["val_accuracy"], label="Validation Accuracy")
+    axes[0].set_title("Experiment 4B - Accuracy")
+    axes[0].set_xlabel("Epoch")
+    axes[0].set_ylabel("Accuracy")
+    axes[0].legend()
+    axes[0].grid(True)
+
+    axes[1].plot(epochs, history["loss"], label="Training Loss")
+    axes[1].plot(epochs, history["val_loss"], label="Validation Loss")
+    axes[1].set_title("Experiment 4B - Loss")
+    axes[1].set_xlabel("Epoch")
+    axes[1].set_ylabel("Loss")
+    axes[1].legend()
+    axes[1].grid(True)
+
+    plt.tight_layout()
+
+    output_path = OUTPUT_DIR / "regularization_4b_training_history.png"
+
+    plt.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.show()
+
+    print(f"Experiment 4B graphs saved to: {output_path}")
 
 if __name__ == "__main__":
     plot_confusion_matrix()
     plot_training_history()
+    plot_regularization_history()
+    plot_reg_4b_history()

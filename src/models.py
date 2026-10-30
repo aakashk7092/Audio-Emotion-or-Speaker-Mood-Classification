@@ -1,7 +1,7 @@
 
 import tensorflow as tf
 from tensorflow.keras import layers, models
-
+from tensorflow.keras import regularizers
 
 def build_mfcc_cnn(input_shape=(40, 130, 1), num_classes=8):
     """Build a CNN classifier for MFCC features."""
@@ -49,6 +49,77 @@ def build_mfcc_cnn(input_shape=(40, 130, 1), num_classes=8):
 
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+        loss="sparse_categorical_crossentropy",
+        metrics=["accuracy"],
+    )
+
+    return model
+
+def build_mfcc_cnn_regularized(
+    input_shape=(40, 130, 1),
+    num_classes=8,
+    dropout_rates=(0.25, 0.30, 0.40),
+    l2_strength=0.0001,
+    learning_rate=0.001,
+):
+    """Build a regularized MFCC CNN for Experiment 4."""
+
+    inputs = layers.Input(shape=input_shape, name="mfcc_input")
+
+    l2_reg = regularizers.l2(l2_strength)
+
+    x = layers.Conv2D(
+        32, kernel_size=3, padding="same",
+        use_bias=False, kernel_regularizer=l2_reg
+    )(inputs)
+    x = layers.BatchNormalization()(x)
+    x = layers.Activation("relu")(x)
+    x = layers.MaxPooling2D(pool_size=2)(x)
+    x = layers.Dropout(dropout_rates[0])(x)
+
+    x = layers.Conv2D(
+        64, kernel_size=3, padding="same",
+        use_bias=False, kernel_regularizer=l2_reg
+    )(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.Activation("relu")(x)
+    x = layers.MaxPooling2D(pool_size=2)(x)
+    x = layers.Dropout(dropout_rates[1])(x)
+
+    x = layers.Conv2D(
+        128, kernel_size=3, padding="same",
+        use_bias=False, kernel_regularizer=l2_reg
+    )(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.Activation("relu")(x)
+    x = layers.MaxPooling2D(pool_size=2)(x)
+
+    x = layers.GlobalAveragePooling2D()(x)
+
+    x = layers.Dense(
+        128,
+        activation="relu",
+        kernel_regularizer=l2_reg
+    )(x)
+
+    x = layers.Dropout(dropout_rates[2])(x)
+
+    outputs = layers.Dense(
+        num_classes,
+        activation="softmax",
+        name="emotion_probabilities",
+    )(x)
+
+    model = models.Model(
+        inputs=inputs,
+        outputs=outputs,
+        name="regularized_mfcc_emotion_cnn",
+    )
+
+    model.compile(
+        optimizer=tf.keras.optimizers.Adam(
+            learning_rate=learning_rate
+        ),
         loss="sparse_categorical_crossentropy",
         metrics=["accuracy"],
     )

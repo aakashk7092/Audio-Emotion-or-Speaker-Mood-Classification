@@ -1,0 +1,24 @@
+{
+  "experiment": "Experiment 4A - L2 and Dropout",
+  "epochs_completed": 26,
+  "best_epoch": 18,
+  "best_val_accuracy": 0.40416666865348816,
+  "val_loss_at_best_accuracy": 1.5833631753921509,
+  "best_val_loss": 1.5833631753921509,
+  "train_samples": 960,
+  "validation_samples": 240,
+  "test_samples_reserved": 240,
+  "class_weights_used": true,
+  "augmentation_used": false,
+  "dropout_rates": [
+    0.25,
+    0.3,
+    0.4
+  ],
+  "l2_strength": 0.0001,
+  "learning_rate": 0.001,
+  "best_model_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\models\\best_mfcc_cnn_reg_4a.keras",
+  "normalization_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\artifacts\\mfcc_normalization_reg_4a.npz",
+  "history_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\artifacts\\training_history_reg_4a.csv",
+  "test_used_for_model_selection": false
+}
