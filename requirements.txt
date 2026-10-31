@@ -1,13 +1,11 @@
-
 numpy==1.26.4
 pandas
 scikit-learn
+joblib
 librosa==0.10.2.post1
 soundfile
-tensorflow==2.15.1
 matplotlib
 seaborn
-streamlit
-PyYAML
-tqdm
-pytest
+tensorflow-cpu==2.15.1
+streamlit==1.60.0
+starlette==0.50.0

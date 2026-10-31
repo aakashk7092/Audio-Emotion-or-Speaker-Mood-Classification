@@ -3,8 +3,17 @@ __pycache__/
 *.py[cod]
 .env
 .ipynb_checkpoints/
-data/raw/
-data/processed/
-models/
-results/
 .pytest_cache/
+*.log
+
+# Ignore heavy audio training datasets
+data/archive (1)/
+data/crema_d/
+data/raw/
+data/processed/*.npz
+
+# Keep trained model & artifacts for cloud deployment
+!models/
+!models/*.keras
+!models/*.joblib
+!artifacts/

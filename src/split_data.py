@@ -2,8 +2,6 @@
 import json
 
 import numpy as np
-from sklearn.model_selection import train_test_split
-
 from src.config import PROCESSED_DIR, RANDOM_SEED
 
 
@@ -28,21 +26,22 @@ def create_actor_splits():
             f"Expected 24 actors, found {len(unique_actors)}"
         )
 
-    # First reserve 4 actors for testing.
-    train_val_actors, test_actors = train_test_split(
-        unique_actors,
-        test_size=4,
-        random_state=RANDOM_SEED,
-        shuffle=True,
-    )
+    # RAVDESS actor IDs encode gender: odd=male, even=female.  Splitting all
+    # four test actors from one parity (as a plain random draw can do) turns
+    # evaluation into a gender-domain-shift experiment rather than a balanced
+    # speaker-independent SER benchmark.  Shuffle each group independently so
+    # all three partitions contain both genders.
+    male_actors = unique_actors[unique_actors % 2 == 1]
+    female_actors = unique_actors[unique_actors % 2 == 0]
+    rng = np.random.default_rng(RANDOM_SEED)
+    rng.shuffle(male_actors)
+    rng.shuffle(female_actors)
 
-    # Reserve 4 of the remaining actors for validation.
-    train_actors, val_actors = train_test_split(
-        train_val_actors,
-        test_size=4,
-        random_state=RANDOM_SEED,
-        shuffle=True,
-    )
+    # Two male and two female actors each for validation and test; the
+    # remaining 16 actors are the training set.
+    test_actors = np.concatenate([male_actors[:2], female_actors[:2]])
+    val_actors = np.concatenate([male_actors[2:4], female_actors[2:4]])
+    train_actors = np.concatenate([male_actors[4:], female_actors[4:]])
 
     train_indices = np.flatnonzero(
         np.isin(actor_ids, train_actors)
@@ -69,6 +68,7 @@ def create_actor_splits():
 
     split_info = {
         "seed": RANDOM_SEED,
+        "split_strategy": "gender-balanced speaker-independent",
         "train_actors": sorted(map(int, train_actors)),
         "validation_actors": sorted(map(int, val_actors)),
         "test_actors": sorted(map(int, test_actors)),

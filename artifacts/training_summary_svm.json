@@ -1,0 +1,15 @@
+{
+  "model": "Enhanced RBF SVM with MFCC and log-Mel statistical descriptors",
+  "best_params": {
+    "C": 30.0,
+    "gamma": 0.0001
+  },
+  "feature_dimensions": 2856,
+  "validation_accuracy": 0.4666666666666667,
+  "validation_macro_f1": 0.4560684217728229,
+  "train_samples": 960,
+  "validation_samples": 240,
+  "test_samples_reserved": 240,
+  "test_used_for_model_selection": false,
+  "model_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\models\\best_ser_svm.joblib"
+}

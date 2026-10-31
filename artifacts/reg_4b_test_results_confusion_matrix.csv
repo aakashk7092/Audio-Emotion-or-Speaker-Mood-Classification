@@ -1,0 +1,9 @@
+Actual,neutral,calm,happy,sad,angry,fearful,disgust,surprised
+neutral,7,9,0,0,0,0,0,0
+calm,3,29,0,0,0,0,0,0
+happy,5,7,7,1,2,6,4,0
+sad,4,16,1,4,1,6,0,0
+angry,4,2,0,1,24,1,0,0
+fearful,2,7,1,5,1,13,3,0
+disgust,0,9,0,1,0,3,19,0
+surprised,6,8,1,0,0,8,5,4

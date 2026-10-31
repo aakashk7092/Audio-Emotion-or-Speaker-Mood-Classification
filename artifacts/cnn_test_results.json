@@ -1,0 +1,76 @@
+{
+  "model": "CNN with MFCC + delta + delta-delta (3-channel)",
+  "test_actors": [
+    1,
+    12,
+    15,
+    24
+  ],
+  "test_samples": 240,
+  "accuracy": 0.6125,
+  "macro_f1": 0.6115339297947322,
+  "balanced_accuracy": 0.58984375,
+  "classification_report": {
+    "neutral": {
+      "precision": 0.8,
+      "recall": 0.25,
+      "f1-score": 0.38095238095238093,
+      "support": 16.0
+    },
+    "calm": {
+      "precision": 0.7368421052631579,
+      "recall": 0.875,
+      "f1-score": 0.8,
+      "support": 32.0
+    },
+    "happy": {
+      "precision": 0.9333333333333333,
+      "recall": 0.4375,
+      "f1-score": 0.5957446808510638,
+      "support": 32.0
+    },
+    "sad": {
+      "precision": 0.2909090909090909,
+      "recall": 0.5,
+      "f1-score": 0.367816091954023,
+      "support": 32.0
+    },
+    "angry": {
+      "precision": 0.92,
+      "recall": 0.71875,
+      "f1-score": 0.8070175438596491,
+      "support": 32.0
+    },
+    "fearful": {
+      "precision": 0.41379310344827586,
+      "recall": 0.75,
+      "f1-score": 0.5333333333333333,
+      "support": 32.0
+    },
+    "disgust": {
+      "precision": 0.8181818181818182,
+      "recall": 0.5625,
+      "f1-score": 0.6666666666666666,
+      "support": 32.0
+    },
+    "surprised": {
+      "precision": 0.9090909090909091,
+      "recall": 0.625,
+      "f1-score": 0.7407407407407407,
+      "support": 32.0
+    },
+    "accuracy": 0.6125,
+    "macro avg": {
+      "precision": 0.7277687950283231,
+      "recall": 0.58984375,
+      "f1-score": 0.6115339297947322,
+      "support": 240.0
+    },
+    "weighted avg": {
+      "precision": 0.7229533813635446,
+      "recall": 0.6125,
+      "f1-score": 0.6269060330508889,
+      "support": 240.0
+    }
+  }
+}

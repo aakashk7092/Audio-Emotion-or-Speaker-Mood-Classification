@@ -1,0 +1,15 @@
+{
+  "model": "RAVDESS + CREMA-D RBF SVM (MFCC/log-Mel summaries)",
+  "best_params": {
+    "C": 10.0,
+    "gamma": "scale"
+  },
+  "validation_accuracy": 0.4166666666666667,
+  "validation_macro_f1": 0.4179780106519633,
+  "ravdess_train_samples": 960,
+  "ravdess_validation_samples": 240,
+  "crema_train_samples": 7437,
+  "test_samples_reserved": 240,
+  "test_used_for_model_selection": false,
+  "model_path": "C:\\Users\\aakas\\OneDrive\\Desktop\\DL_Project\\Audio-Emotion-or-Speaker-Mood-Classification\\models\\best_ser_combined_svm.joblib"
+}
